@@ -2,18 +2,7 @@
 
 import tabulate, json, datetime
 
-with open("episodes_original.json") as f:
+with open("episode_list.json") as f:
     episodes = json.load(f)
 
-episode_table = []
-for episode in episodes:
-    if episode["coreAssetType"] == "EPISODE":
-        episode_table.append({
-            "id": episode["id"],
-            "longTitle": episode["longTitle"],
-            "duration": str(datetime.timedelta(seconds=episode["duration"])),
-            "broadcastedOn": episode["broadcastedOn"]
-        })
-
-print(tabulate.tabulate(episode_table, headers="keys"))
-print(len(episode_table))
+print(tabulate.tabulate(episodes, headers="keys", maxcolwidths=[None, None, None, None, None, 40]))
