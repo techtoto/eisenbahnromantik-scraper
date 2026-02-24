@@ -22,7 +22,7 @@ def get_episode_list():
         r = requests.get(f"https://api.ardmediathek.de/page-gateway/widgets/ard/asset/{ASSET_ID}?pageNumber={page_number}&pageSize={PAGE_SIZE}")
         append_episodes(r.json()["teasers"])
 
-    with open("episodes_original.json", "w") as f:
+    with open("./json/ard_episodes_original.json", "w") as f:
         json.dump(episodes, f)
 
 def get_episode_details():
@@ -39,7 +39,7 @@ def get_episode_details():
         print(r.json()["widgets"][0]["synopsis"])
         print()
 
-    with open("episode_list.json", "w") as f:
+    with open("./json/ard_episode_list.json", "w") as f:
         json.dump(new_episode_list, f)
 
 get_episode_list()

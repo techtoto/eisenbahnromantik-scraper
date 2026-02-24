@@ -2,7 +2,7 @@
 
 import tabulate, json, datetime
 
-with open("episode_list.json") as f:
+with open("./json/ard_episode_list.json") as f:
     episodes = json.load(f)
 
 print(tabulate.tabulate(episodes, headers="keys", maxcolwidths=[None, None, None, None, None, 40]))
