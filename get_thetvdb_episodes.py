@@ -17,7 +17,6 @@ r = requests.get(TVDB_URL, headers=headers)
 thetvdb_episodes = r.json()
 
 while thetvdb_episodes["links"]["next"] != None:
-    print(thetvdb_episodes["links"]["next"])
     r = requests.get(thetvdb_episodes["links"]["next"], headers=headers)
     new_episodes = r.json()
     thetvdb_episodes["links"] = new_episodes["links"] # pagination

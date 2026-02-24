@@ -9,7 +9,8 @@ episodes = []
 new_episode_list = []
 
 def append_episodes(episode_list):
-    [episodes.append(episode) for episode in episode_list]
+    for episode in episode_list:
+        episodes.append(episode)
 
 def get_episode_list():
     r = requests.get(f"https://api.ardmediathek.de/page-gateway/widgets/ard/asset/{ASSET_ID}?pageNumber=0&pageSize={PAGE_SIZE}")
